@@ -4,7 +4,8 @@ import { Element } from 'react-scroll'
 function Skills() {
     return (
         <Element name='skills'>
-        <div className='relative w-full h-fit  flex flex-col items-center p-4 mt-6'>
+            {/*   bg-[#F8F8FF]*/}
+        <div className='relative w-full h-fit  flex flex-col items-center p-4 mt-6 bg-[rgb(255,250,250)]'>
             <h1 className='relative text-[3vmax] max-[650px]:text-[3.5vmax] font-[600] font-poppins'>My Skills</h1>
             <h1 className='relative text-[1.5vmax] font-[400] font-poppins'>Technical Skills</h1>
             <div className='relative w-full h-[80vh] max-[650px]:h-[100vh]  flex flex-row items-center justify-around max-[650px]:flex-col max-[650px]:gap-4 '>

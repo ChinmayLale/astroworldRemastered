@@ -22,7 +22,8 @@ function DashBoard() {
 
     return (
         <Element name="dashboard">
-            <div className='relative h-full w-full p-2 bg-[#fafbff] flex flex-col' >
+            {/*  bg-[#fafbff] */}
+            <div className='relative h-full w-full p-2  flex flex-col bg-[rgb(255,250,250)]' >
                 <div className='relative w-full h-[72vh]  flex flex-row max-[650px]:flex-col-reverse'>
                     <div className='relative  flex flex-col h-full w-[50%] max-[650px]:w-full items-start pl-[10%] justify-center gap-4'>
                         <h1 className='relative text-[4vmax] font-[600] font-poppins '>Chinmay Lale 👋🏻</h1>
