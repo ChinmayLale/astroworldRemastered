@@ -16,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DashBoard/>}/>
         <Route path="/" element={<AboutMe/>}/>
+        <Route path="/" element={<Skills/>}/>
       </Routes>
       {/* <DashBoard/>
       <AboutMe/>
