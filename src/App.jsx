@@ -13,14 +13,14 @@ function App() {
     <>
       
       <NavBar/>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<DashBoard/>}/>
         <Route path="/" element={<AboutMe/>}/>
         <Route path="/" element={<Skills/>}/>
-      </Routes>
-      {/* <DashBoard/>
+      </Routes> */}
+      <DashBoard/>
       <AboutMe/>
-      <Skills/> */}
+      <Skills/>
     </>
   )
 }
