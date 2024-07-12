@@ -5,6 +5,8 @@ import Content from './Components/Content'
 import AboutMe from './Components/AboutMe'
 import { Route ,Routes } from 'react-router-dom'
 import Skills from './Components/Skills'
+import HomePage from './Components/HomePage'
+import Services from './Components/Services'
 
 function App() {
   
@@ -21,6 +23,8 @@ function App() {
       <DashBoard/>
       <AboutMe/>
       <Skills/>
+      <Services/>
+      {/* <HomePage/> */}
     </>
   )
 }
