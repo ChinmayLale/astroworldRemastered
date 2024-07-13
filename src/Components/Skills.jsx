@@ -5,13 +5,13 @@ function Skills() {
     return (
         <Element name='skills'>
             {/*   bg-[#F8F8FF]*/}
-        <div className='relative w-full h-fit  flex flex-col items-center p-4 pt-8 bg-[#f8f6f6]'>
+        <div className='relative w-full h-fit  flex flex-col items-center p-4 pt-8 bg-[#f8f6f6] dark:bg-[#1c1917] dark:text-[#fafaf9]'>
             <h1 className='relative text-[3vmax] max-[650px]:text-[3.5vmax] font-[600] font-poppins'>My Skills</h1>
             <h1 className='relative text-[1.5vmax] font-[400] font-poppins'>Technical Skills</h1>
             <div className='relative w-full h-[80vh] max-[650px]:h-[100vh]  flex flex-row items-center justify-around max-[650px]:flex-col max-[650px]:gap-4 '>
                 
                 
-                <div className='relative w-[25%] h-[50vh] flex flex-col bg-gray-100 justify-around items-center  rounded-xl border border-gray-500 max-[650px]:h-[40vh] max-[650px]:w-[80%]'>
+                <div className='relative w-[25%] h-[50vh] flex flex-col bg-gray-100 justify-around items-center  rounded-xl border border-gray-500 max-[650px]:h-[40vh] max-[650px]:w-[80%] dark:bg-[#221f1d]'>
                     <h1 className='relative text-[1.5vmax] font-[500] font-poppins text-center pt-4 max-[650px]:text-[2.5vmax]'>Backend Development</h1>
                     <div className='relative p-[4%]  w-full h-full grid grid-cols-2 grid-rows-3 gap-2 max-[650px]:gap-4'>
 
@@ -66,7 +66,7 @@ function Skills() {
                     </div>
                 </div>
 
-                <div className='relative w-[25%] h-[50vh] flex flex-col bg-gray-100 justify-around items-center  rounded-xl border border-gray-500 max-[650px]:h-[40vh] max-[650px]:w-[80%]'>
+                <div className='relative w-[25%] h-[50vh] flex flex-col bg-gray-100 justify-around items-center  rounded-xl border border-gray-500 max-[650px]:h-[40vh] max-[650px]:w-[80%] dark:bg-[#221f1d]'>
                     <h1 className='relative text-[1.5vmax] font-[500] font-poppins text-center pt-4 max-[650px]:text-[2.5vmax]'>FrontEnd Development</h1>
                     <div className='relative p-[4%]  w-full h-full grid grid-cols-2 grid-rows-3 gap-2 max-[650px]:gap-4'>
 
@@ -121,7 +121,7 @@ function Skills() {
                     </div>
                 </div>
 
-                <div className='relative w-[25%] h-[50vh] flex flex-col bg-gray-100 justify-around items-center  rounded-xl border border-gray-500 max-[650px]:h-[40vh] max-[650px]:w-[80%]'>
+                <div className='relative w-[25%] h-[50vh] flex flex-col bg-gray-100 justify-around items-center  rounded-xl border border-gray-500 max-[650px]:h-[40vh] max-[650px]:w-[80%] dark:bg-[#221f1d]'>
                     <h1 className='relative text-[1.5vmax] font-[500] font-poppins text-center pt-4 max-[650px]:text-[2.5vmax]'>Miscellaneous</h1>
                     <div className='relative p-[4%]  w-full h-full grid grid-cols-2 grid-rows-3 gap-2 max-[650px]:gap-4'>
 

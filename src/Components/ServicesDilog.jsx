@@ -42,7 +42,7 @@ function ServicesDilog({ visible, toggle, id }) {
 
                 <div className={`relative w-full max-w-md max-h-full  ${visible ? 'translate-x-0' : '-translate-x-[200%]'} duration-500 ease-in-out h-[100%] flex flex-row items-center justify-center`}>
 
-                    <div className="relative rounded-lg shadow dark:bg-gray-700 max-[650px]:h-[60%] h-[60%] ">
+                    <div className="relative rounded-lg shadow max-[650px]:h-[60%] h-[60%]  dark:bg-[#221f1d]">
 
                         <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 ">
                             <h3 className="text-xl font-medium text-gray-900 dark:text-white text-center w-full">

@@ -44,7 +44,7 @@ function HomePage() {
         // Main div
 
 
-        <div className='relative w-[100vw] h-fit overflow-x-hidden max-[650px]:flex max-[650px]:flex-col max-[650px]:flex-wrap'>
+        <div className='relative w-[100vw] h-fit overflow-x-hidden max-[650px]:flex max-[650px]:flex-col max-[650px]:flex-wrap dark:bg-slate-900'>
 
 
             {/* background circle div */}

@@ -8,26 +8,26 @@ import resume from '../assets/Chinmay_Lale_Resume.pdf'
 function AboutMe() {
     return (
         <Element name="about">
-            <div className='relative w-full h-fit  flex flex-col items-center p-4 bg-[#f8f6f6]'>
+            <div className='relative w-full h-fit  flex flex-col items-center p-4 bg-[#f8f6f6] dark:bg-[#1c1917] dark:text-[#fafaf9]'>
                 <h1 className='relative text-[3.5vmax] font-[600] font-poppins'>About Me</h1>
                 <h1 className='relative text-[1.5vmax] font-[400] font-poppins'>My Intro</h1>
                 <div className='relative w-full h-full flex flex-row  justify-around max-[650px]:flex-col max-[650px]:items-center'>
                     <div className='relative w-[50%] h-[70vh] flex flex-col p-2 max-[650px]:w-full font-poppins max-[650px]:h-[30vh]'> <img src={aboutBG} className='w-[95%] h-[95%] ' alt="" /></div>
                     <div className='relative w-[50%] h-[70vh] flex flex-col justify-around p-2 max-[650px]:w-full font-poppins max-[650px]:h-fit'>
                         <div className='relative w-full h-fit flex flex-row justify-start gap-2 max-[650px]:h-fit p-2 max-[650px]:scale-110 max-[650px]:justify-around'>
-                            <div className='relative w-[30%] h-[30vh] flex flex-col bg-gray-100 justify-center items-center  rounded-xl border border-gray-500 max-[650px]:h-[15vh] max-[650px]:w[25vw]'>
+                            <div className='relative w-[30%] h-[30vh] flex flex-col bg-gray-100 justify-center items-center  rounded-xl border border-gray-500 max-[650px]:h-[15vh]  dark:bg-[#262626]'>
                                 <i className="ri-award-line relative text-[3.5vmax] font-[300] font-poppins"></i>
                                 <h1 className='relative text-[1.5vmax] font-[400] font-poppins'> Experiance </h1>
                                 <h1 className='relative text-[1vmax] font-[300] font-poppins text-center'>4+ Months</h1>
                             </div>
 
-                            <div className='relative w-[30%] h-[100%] flex flex-col bg-gray-50 justify-center items-center  rounded-xl border border-gray-500 max-[650px]:h-[15vh]'>
+                            <div className='relative w-[30%] h-[100%] flex flex-col bg-gray-50 justify-center items-center  rounded-xl border border-gray-500 max-[650px]:h-[15vh] dark:bg-[#262626]'>
                                 <i className="ri-stack-line relative text-[3.5vmax] font-[300] font-poppins"></i>
                                 <h1 className='relative text-[1.5vmax] font-[400] font-poppins text-center w-full'>Projects Done</h1>
                                 <h1 className='relative text-[1vmax] font-[300] font-poppins text-center'>7+</h1>
                             </div>
 
-                            <div className='relative w-[30%] h-full flex flex-col bg-gray-50 justify-center items-center  rounded-xl border border-gray-500 max-[650px]:h-[15vh]'>
+                            <div className='relative w-[30%] h-full flex flex-col bg-gray-50 justify-center items-center  rounded-xl border border-gray-500 max-[650px]:h-[15vh] dark:bg-[#262626]'>
                                 <i className="ri-braces-line relative text-[3.5vmax]  font-poppins"></i>
                                 <h1 className='relative text-[1.5vmax] font-[400] font-poppins text-center'> Tech Stack Learnt </h1>
                                 <h1 className='relative text-[1vmax] font-[300] font-poppins text-center'>4+</h1>
