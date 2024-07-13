@@ -26,6 +26,10 @@ function Navbar() {
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                         </svg>
                     </button>
+                    <h1 className='fixed top-[12%] text-white right-8 text-xl'>
+                    <i className={`ri-moon-line dark:hidden cursor-pointer`}></i>
+                    <i className={`ri-sun-line hidden dark:inline cursor-pointer`}></i>
+                    </h1>
                 </div>
                 <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${navbarOpen ? 'block' : 'hidden'}`} id="navbar-sticky dark:bg-[#1c1917]">
                     <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white  dark:bg-[#1c1917] dark:border-gray-700 md:dark:bg-[#1c1917]">
