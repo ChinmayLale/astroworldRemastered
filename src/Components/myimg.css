@@ -1,6 +1,7 @@
 .myimg{
     box-shadow: inset 0 0 0 15px rgb(255, 255, 255/30%);
     order: 1;
+    z-index: 0;
     justify-self: center;
     animation: myimganim 5s ease-in-out infinite 1s;
 }

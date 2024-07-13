@@ -32,7 +32,7 @@ function DashBoard() {
                         <button className='relative flex flex-row items-center justify-center mt-[5%] bg-gray-800 text-gray-100 p-2 rounded-lg text-[1.5vmax] font-semibold font-poppins animate-bounce max-[650px]:text-[2vmax]'><a href="mailto:chinmay29.lale@gmail.com">Say Hello<i className="ml-1 ri-send-plane-fill "></i> </a></button>
                     </div>
                     <div className='relative flex flex-row h-full w-[50%] max-[650px]:w-full items-center justify-center overflow-hidden'>
-                        <img src={rocket} alt="Personal Image" className='myimg relative z-10 w-[50%] h-[80%] object-cover rounded-full grayscale max-[650px]:w-[70%] max-[650px]:h-[90%]' />
+                        <img src={rocket} alt="Personal Image" className='myimg relative z-1 w-[50%] h-[80%] object-cover rounded-full grayscale max-[650px]:w-[70%] max-[650px]:h-[90%]' />
                     </div>
                 </div>
 

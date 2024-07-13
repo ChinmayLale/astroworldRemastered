@@ -7,6 +7,7 @@ import { Route ,Routes } from 'react-router-dom'
 import Skills from './Components/Skills'
 import HomePage from './Components/HomePage'
 import Services from './Components/Services'
+import ChatBot from './Components/ChatBot'
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
       <AboutMe/>
       <Skills/>
       <Services/>
+      <ChatBot/>
       {/* <HomePage/> */}
     </>
   )

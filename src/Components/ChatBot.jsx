@@ -1,0 +1,109 @@
+import React, { useState, useRef, useEffect } from 'react'
+import Lottie from "lottie-react";
+import chatbot from '../assets/chatbot.json'
+
+function ChatBot() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [messages, setMessages] = useState([
+        { sender: 'bot', text: 'Hello! How can I help you today? Please choose an option:', options: ['Contact', 'Get Call', 'Send Request'] }
+    ]);
+    const [inputMessage, setInputMessage] = useState('');
+    const messagesEndRef = useRef(null);
+
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    }
+
+    useEffect(scrollToBottom, [messages]);
+
+    const handleSendMessage = (e) => {
+        e.preventDefault();
+        if (inputMessage.trim() !== '') {
+            setMessages([...messages, { sender: 'user', text: inputMessage }]);
+            setInputMessage('');
+            handleBotResponse(inputMessage);
+        }
+    }
+
+    const handleOptionClick = (option) => {
+        setMessages([...messages, { sender: 'user', text: option }]);
+        handleBotResponse(option);
+    }
+
+    const handleBotResponse = (userInput) => {
+        setTimeout(() => {
+            let botResponse = "I'm sorry, I didn't understand that. Can you please choose from the options provided?";
+            switch(userInput.toLowerCase()) {
+                case 'contact':
+                    botResponse = "Great! You can contact us at contact@example.com or call us at 123-456-7890.";
+                    break;
+                case 'get call':
+                    botResponse = "Sure, I'd be happy to arrange a call. What's the best number to reach you at?";
+                    break;
+                case 'send request':
+                    botResponse = "Certainly! Please provide details about your request and I'll make sure it gets to the right department.";
+                    break;
+                default:
+                    botResponse += " Here are your options:";
+            }
+            setMessages(prev => [...prev, { sender: 'bot', text: botResponse, options: ['Contact', 'Get Call', 'Send Request'] }]);
+        }, 1000);
+    }
+
+    return (
+        <div className='fixed bottom-4 right-2 cursor-pointer'>
+            <Lottie animationData={chatbot} loop={true} className='w-28 h-28' onClick={() => setIsOpen(!isOpen)} />
+            
+            <div className={`absolute z-10 w-[20vw] max-[650px]:w-[80vw] h-[60vh] bottom-24 right-4 bg-transparent backdrop-blur-md rounded-lg flex flex-col ${isOpen ? 'block' : 'hidden'} duration-500 border-solid border-2 border-gray-200`}>
+                <div className="flex-1 overflow-y-auto p-4">
+                    {messages.map((message, index) => (
+                        <div key={index} className={`chat ${message.sender === 'bot' ? 'chat-start' : 'chat-end'}`}>
+                            <div className="chat-image avatar">
+                                <div className="w-8 rounded-full">
+                                    <Lottie animationData={chatbot} loop={true} className='w-fit h-fit' />
+                                </div>
+                            </div>
+                            <div className="chat-header">
+                                {message.sender === 'bot' ? 'astroBot' : 'you'}
+                            </div>
+                            <div className={`chat-bubble text-sm ${message.sender === 'bot' ? 'bg-green-200' : 'bg-orange-50'} text-black`}>
+                                {message.text}
+                                {message.options && (
+                                    <div className="mt-2">
+                                        {message.options.map((option, idx) => (
+                                            <button 
+                                                key={idx} 
+                                                onClick={() => handleOptionClick(option)}
+                                                className="bg-blue-500 text-white rounded px-2 py-1 mr-2 mt-2 text-xs"
+                                            >
+                                                {option}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                    <div ref={messagesEndRef} />
+                </div>
+                
+                <form onSubmit={handleSendMessage} className="p-4 border-t border-gray-200">
+                    <div className="flex">
+                        <input
+                            type="text"
+                            value={inputMessage}
+                            onChange={(e) => setInputMessage(e.target.value)}
+                            placeholder="Type a message..."
+                            className="flex-1 border rounded-l-lg p-2 text-sm"
+                        />
+                        <button type="submit" className="bg-gray-800 text-gray-50 rounded-r-lg px-4 py-2 text-sm">
+                            Send
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    )
+}
+
+export default ChatBot

@@ -26,7 +26,7 @@ function Navbar() {
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                         </svg>
                     </button>
-                    <h1 className='fixed top-[12%] text-white right-8 text-xl'>
+                    <h1 className='fixed top-[12%] text-white right-8 text-xl dark:text-white text-black'>
                     <i className={`ri-moon-line dark:hidden cursor-pointer`}></i>
                     <i className={`ri-sun-line hidden dark:inline cursor-pointer`}></i>
                     </h1>
