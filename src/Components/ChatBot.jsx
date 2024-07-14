@@ -1,9 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Lottie from "lottie-react";
+import {io} from 'socket.io-client'
 import chatbot from '../assets/chatbot.json'
+import chatBotBlack from '../assets/chatBotBlack.json'
+
+
+
+
 
 function ChatBot() {
+    const socketRef = useRef(null);
+    const [issendData , sendData] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
+    const [connectedToServer , setConnectedToServer] = useState(false);
     const [messages, setMessages] = useState([
         { sender: 'bot', text: 'Hello! How can I help you today? Please choose an option:', options: ['Contact', 'Get Call', 'Send Request'] }
     ]);
@@ -16,11 +25,13 @@ function ChatBot() {
 
     useEffect(scrollToBottom, [messages]);
 
-    const handleSendMessage = (e) => {
+    const handleSendMessage = async (e) => {
         e.preventDefault();
         if (inputMessage.trim() !== '') {
             setMessages([...messages, { sender: 'user', text: inputMessage }]);
+            // const serverRes = 
             setInputMessage('');
+            sendData(true);
             handleBotResponse(inputMessage);
         }
     }
@@ -50,10 +61,46 @@ function ChatBot() {
         }, 1000);
     }
 
+
+
+    //Socket Io Work
+   useEffect(()=>{
+    async function connectToServer(){
+        socketRef.current = io('http://localhost:8000/');
+        socketRef.current.emit('msg','hi from frontEnd')
+        setConnectedToServer(true);
+    }
+    connectToServer();
+   },[])
+
+
+   useEffect(()=>{
+    if(socketRef.current && connectedToServer){
+        console.log("btnClicked")
+        socketRef.current.emit('user-msg',inputMessage);
+    }
+   },[issendData])
+
+    
+    useEffect(()=>{
+        if(socketRef.current && connectedToServer){
+            socketRef.current.on('connetion',(data)=>{
+                console.log(data)
+            })
+            socketRef.current.on('rep',(data)=>{
+                alert(data);
+            })
+            
+            // sendData(false)
+        }
+    },[connectedToServer])
+
+
+
     return (
         <div className='fixed bottom-4 right-2 cursor-pointer'>
             <Lottie
-                animationData={chatbot}
+                animationData={chatBotBlack}
                 loop={true}
                 className={`w-28 h-28 transition-transform duration-300 `}
                 onClick={() => setIsOpen(!isOpen)}
@@ -101,7 +148,7 @@ function ChatBot() {
                             placeholder="Type a message..."
                             className="flex-1 border rounded-l-lg p-2 text-sm"
                         />
-                        <button type="submit" className="bg-gray-800 text-gray-50 rounded-r-lg px-4 py-2 text-sm">
+                        <button type="submit" className="bg-gray-800 text-gray-50 rounded-r-lg px-4 py-2 text-sm" onClick={()=>{sendData(!issendData)}}>
                             Send
                         </button>
                     </div>
