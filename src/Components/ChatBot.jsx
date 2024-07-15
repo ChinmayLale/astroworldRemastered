@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import Lottie from "lottie-react";
-import {io} from 'socket.io-client'
+import { io } from 'socket.io-client'
 import chatbot from '../assets/chatbot.json'
 import chatBotBlack from '../assets/chatBotBlack.json'
 
@@ -9,15 +9,18 @@ import chatBotBlack from '../assets/chatBotBlack.json'
 
 
 function ChatBot() {
-    const socketRef = useRef(null);
-    const [issendData , sendData] = useState(false);
+    const [isBot, setIsBot] = useState(true);
     const [isOpen, setIsOpen] = useState(true);
-    const [connectedToServer , setConnectedToServer] = useState(false);
     const [messages, setMessages] = useState([
-        { sender: 'bot', text: 'Hello! How can I help you today? Please choose an option:', options: ['Contact', 'Get Call', 'Send Request'] }
+        { sender: 'bot', text: 'Hello! How can I help you today? Please choose an option:', options: ['Contact', 'Get Call From Chinmay', 'Send Chat Request'] }
     ]);
     const [inputMessage, setInputMessage] = useState('');
     const messagesEndRef = useRef(null);
+
+    const socket = useMemo(() => io("https://socket-app-test.vercel.app/",{
+        path: '/socket.io'
+      }), [])
+
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -29,72 +32,74 @@ function ChatBot() {
         e.preventDefault();
         if (inputMessage.trim() !== '') {
             setMessages([...messages, { sender: 'user', text: inputMessage }]);
-            // const serverRes = 
+            if(!isBot){
+                socket.emit('user-msg', inputMessage.length >5 ? inputMessage : "Chat Request Revived");
+            }
             setInputMessage('');
-            sendData(true);
             handleBotResponse(inputMessage);
         }
     }
 
+  
+
     const handleOptionClick = (option) => {
         setMessages([...messages, { sender: 'user', text: option }]);
         handleBotResponse(option);
+        if(!isBot){
+            setTimeout(()=>{
+                socket.emit('user-msg', inputMessage ? inputMessage : "Chat Request Revived from astrobot");
+            },800)
+        }
     }
 
     const handleBotResponse = (userInput) => {
-        setTimeout(() => {
-            let botResponse = "I'm sorry, I didn't understand that. Can you please choose from the options provided?";
-            switch (userInput.toLowerCase()) {
-                case 'contact':
-                    botResponse = "Great! You can contact Chinmay at chinmay29.lale@gmail.com or call at +91-7620704050.";
-                    break;
-                case 'get call':
-                    botResponse = "Sure, I'd be happy to arrange a call. What's the best number to reach you at?";
-                    break;
-                case 'send chat request':
-                    botResponse = "Just hold a moment i will send request to chinmay , Thanks for your paitents";
-                    break;
-                default:
-                    botResponse += " Here are your options:";
-            }
-            setMessages(prev => [...prev, { sender: 'bot', text: botResponse, options: ['Contact', 'Get Call', 'Send chat request'] }]);
-        }, 1000);
+        if(isBot){
+            setTimeout(() => {
+                let botResponse = "I'm sorry, I didn't understand that. Can you please choose from the options provided?";
+                switch (userInput.toLowerCase()) {
+                    case 'contact':
+                        botResponse = "Great! You can contact Chinmay at chinmay29.lale@gmail.com or call at +91-7620704050.";
+                        break;
+                    case 'get call from chinmay':
+                        botResponse = "Sure, I'd be happy to arrange a call. What's the best number to reach you at?";
+                        break;
+                    case 'send chat request':
+                        botResponse = "Just hold a moment i will send request to chinmay , Thanks for your paitents";
+                        setIsBot(false);
+                        break;
+                    default:
+                        botResponse += " Here are your options:";
+                }
+                setMessages(prev => [...prev, { sender: 'bot', text: botResponse, options: ['Contact', 'Get Call from chinmay', 'Send chat request'] }]);
+            }, 1000);
+        }
     }
 
 
 
     //Socket Io Work
-   useEffect(()=>{
-    async function connectToServer(){
-        socketRef.current = io('http://localhost:8000/');
-        socketRef.current.emit('msg','hi from frontEnd')
-        setConnectedToServer(true);
-    }
-    connectToServer();
-   },[])
 
 
-   useEffect(()=>{
-    if(socketRef.current && connectedToServer){
-        console.log("btnClicked")
-        socketRef.current.emit('user-msg',inputMessage);
-    }
-   },[issendData])
+    useEffect(() => {
 
-    
-    useEffect(()=>{
-        if(socketRef.current && connectedToServer){
-            socketRef.current.on('connetion',(data)=>{
-                console.log(data)
-            })
-            socketRef.current.on('rep',(data)=>{
-                alert(data);
-            })
-            
-            // sendData(false)
-        }
-    },[connectedToServer])
+        socket.on('connect', (msg) => {
+            console.log("MSG From Backend : ", msg)
+        })
 
+        socket.on('replay', (msg) => {
+            const botResponse = msg;
+            setMessages(prev => [...prev, { sender: 'bot', text: botResponse }])
+        })
+
+        socket.on('chinmay-msg', (msg) => {
+            const botResponse = msg;
+            setMessages(prev => [...prev, { sender: 'chinmay', text: botResponse }])
+        })
+
+        return (() => {
+            socket.emit('disconnect', 'disconnected From Server')
+        })
+    }, [])
 
 
     return (
@@ -109,18 +114,18 @@ function ChatBot() {
             <div className={`absolute z-10 w-[20vw] max-[650px]:w-[80vw] h-[60vh] bottom-28 right-4 bg-transparent backdrop-blur-md rounded-lg flex flex-col ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-[200%] opacity-0'} transition-all duration-500 ease-in-out border-solid border-2 border-gray-200`}>
                 <div className="flex-1 overflow-y-auto p-4">
                     {messages.map((message, index) => (
-                        <div key={index} className={`chat ${message.sender === 'bot' ? 'chat-start' : 'chat-end'}`}>
+                        <div key={index} className={`chat ${message.sender === 'bot'  ? 'chat-start' :  message.sender === 'chinmay' ? 'chat-start':'chat-end'}`}>
                             <div className="chat-image avatar">
                                 <div className="w-8 rounded-full">
                                     <Lottie animationData={chatbot} loop={true} className='w-fit h-fit' />
                                 </div>
                             </div>
                             <div className="chat-header">
-                                {message.sender === 'bot' ? 'astroBot' : 'you'}
+                                {message.sender === 'bot' ? 'astroBot' : message.sender === 'chinmay' ? 'chinmay':'you'}
                             </div>
                             <div className={`chat-bubble text-sm ${message.sender === 'bot' ? 'bg-green-200' : 'bg-orange-50'} text-black`}>
                                 {message.text}
-                                {message.options && (
+                                 {message.options && (
                                     <div className="mt-2">
                                         {message.options.map((option, idx) => (
                                             <button
@@ -132,7 +137,7 @@ function ChatBot() {
                                             </button>
                                         ))}
                                     </div>
-                                )}
+                                )} 
                             </div>
                         </div>
                     ))}
@@ -148,7 +153,7 @@ function ChatBot() {
                             placeholder="Type a message..."
                             className="flex-1 border rounded-l-lg p-2 text-sm"
                         />
-                        <button type="submit" className="bg-gray-800 text-gray-50 rounded-r-lg px-4 py-2 text-sm" onClick={()=>{sendData(!issendData)}}>
+                        <button type="submit" className="bg-gray-800 text-gray-50 rounded-r-lg px-4 py-2 text-sm">
                             Send
                         </button>
                     </div>
