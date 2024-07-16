@@ -17,9 +17,7 @@ function ChatBot() {
     const [inputMessage, setInputMessage] = useState('');
     const messagesEndRef = useRef(null);
 
-    const socket = useMemo(() => io("https://socket-app-test.vercel.app/",{
-        path: '/socket.io'
-      }), [])
+    const socket = useMemo(() => io("https://socketapptest.onrender.com/"), [])
 
 
     const scrollToBottom = () => {
