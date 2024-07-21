@@ -31,7 +31,7 @@ function ChatBot() {
         if (inputMessage.trim() !== '') {
             setMessages([...messages, { sender: 'user', text: inputMessage }]);
             if(!isBot){
-                socket.emit('user-msg', inputMessage.length >5 ? inputMessage : "Chat Request Revived");
+                socket.emit('user-msg', inputMessage.length >1 ? inputMessage : "Chat Request Revived");
             }
             setInputMessage('');
             handleBotResponse(inputMessage);

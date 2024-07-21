@@ -10,9 +10,9 @@ function ServicesDilog({ visible, toggle, id }) {
             bullet: ['I develop full-stack applications.', 'I design and implement React components.', 'I create responsive and interactive web applications.', 'I use UI libs for smart easy design.']
         },
         {
-            title: 'backend Devlopement',
-            Desc: 'MERN stack developer with more than 4 months of experience . Providing quality work in projects & companies.',
-            bullet: ['I develop full-stack applications.', 'I design and implement React components.', 'I create responsive and interactive web applications.', 'I use UI libs for smart easy design.']
+            title: 'Backend Devlopement',
+            Desc: 'Backend developer with more than 4 months of experience . Providing quality work in projects & companies.',
+            bullet: ['I develop full-stack applications.', 'I design and implement Node Js', 'I Write Api`s ', 'I use PostMan']
         },
         {
             title: 'Python Devlopement',
