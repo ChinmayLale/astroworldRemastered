@@ -35,7 +35,7 @@ function AboutMe() {
                         </div>
                        <RevelAnim element={
                          <div className='relative w-full h-fit flex flex-col pt-1 items-start max-[650px]:items-center'>
-                         <h1 className='relative w-full px-2 font-poppins text-[1.2vmax] max-[650px]:text-pretty max-[650px]:text-[2vmax] max-[650px]:py-4'>I'm Chinmay Lale, a ReactJS & NodeJS Developer from Pune, specializing in MERN Stack, AI, and IoT. I have a B.Tech in Computer Science and experience in full-stack development and cybersecurity. Notable projects include a patented AI crop monitoring system and a self-navigating rover.</h1>
+                         <h1 className='relative w-full px-2 font-poppins text-[1.2vmax] max-[650px]:text-pretty max-[650px]:text-[2vmax] max-[650px]:py-4'>I'm Chinmay Lale, a ReactJS & NodeJS Developer , specializing in MERN Stack, AI, and IoT. I have a B.Tech in Computer Science and experience in full-stack development and IOT. Notable projects include a patented AI crop monitoring system Trata , edu Platform EduHub One to One Video chat app NexaChat.</h1>
                          <button className='relative flex flex-row items-center justify-center mt-[5%] bg-gray-800 text-gray-200 p-2 rounded-lg text-[1.2vmax] font-semibold font-poppins max-[650px]:text-[2vmax] '><a href={resume} download={true}>Download CV<i className="ml-1 ri-file-download-line "></i> </a></button>
                      </div>
                        }>

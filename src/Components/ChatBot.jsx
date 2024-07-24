@@ -109,7 +109,7 @@ function ChatBot() {
                 onClick={() => setIsOpen(!isOpen)}
             />
 
-            <div className={`absolute z-10 w-[20vw] max-[650px]:w-[80vw] h-[60vh] bottom-28 right-4 bg-transparent backdrop-blur-md rounded-lg flex flex-col ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-[200%] opacity-0'} transition-all duration-500 ease-in-out border-solid border-2 border-gray-200`}>
+            <div className={`absolute z-[300] w-[20vw] max-[650px]:w-[80vw] h-[60vh] bottom-28 right-4 bg-transparent backdrop-blur-md rounded-lg flex flex-col ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-[200%] opacity-0'} transition-all duration-500 ease-in-out border-solid border-2 border-gray-200`}>
                 <div className="flex-1 overflow-y-auto p-4">
                     {messages.map((message, index) => (
                         <div key={index} className={`chat ${message.sender === 'bot'  ? 'chat-start' :  message.sender === 'chinmay' ? 'chat-start':'chat-end'}`}>

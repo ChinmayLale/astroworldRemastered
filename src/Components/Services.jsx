@@ -9,7 +9,7 @@ function Services() {
 
 
     return (
-        <Element name='skills'>
+        <Element name='services'>
             <div className='relative w-full h-fit  flex flex-col items-center p-4 pt-8 bg-[#f8f6f6] overflow-hidden dark:text-[#fafaf9] dark:bg-[#1c1917]'>
                 <h1 className='relative text-[3vmax] max-[650px]:text-[3.5vmax] font-[600] font-poppins'>What Can I Do <i className="ri-lightbulb-line font-[200]"></i></h1>
                 <h1 className='relative text-[1.5vmax] font-[400] font-poppins'>Services</h1>

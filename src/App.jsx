@@ -10,6 +10,7 @@ import Services from './Components/Services'
 import ChatBot from './Components/ChatBot'
 import ChatApp from './Components/ChatApp';
 import Projects from './Components/Projects';
+import WorkExperience from './Components/WorkExperience';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <AboutMe />
       <Skills />
       <Services />
+      <WorkExperience/>
       <Projects/>
 
 
