@@ -26,7 +26,7 @@ function WorkExperience() {
                                 </svg>
                             </div>
                             <div className="timeline-start mb-10 md:text-end">
-                                <time className="font-mono italic">April 2024 - Current</time>
+                                <time className="font-mono italic text-sm">April 2024 - Current</time>
                                 <div className="text-lg font-bold">Aarya Global Consulting</div>
                                 <p>React Js & Node Js Developer</p>
                                 <p>React.js & Nodejs Application Developer ,Responsible for Rest API configurations  , Handling Backend  , Developing React Component</p>
@@ -48,7 +48,7 @@ function WorkExperience() {
                                 </svg>
                             </div>
                             <div className="timeline-end mb-10">
-                                <time className="font-mono italic">January 2024 - April 2024</time>
+                                <time className="font-mono italic text-sm">January 2024 - April 2024</time>
                                 <div className="text-lg font-bold">Profound Edutech</div>
                                 <p>Mern Stack Developer Intern</p>
                                 <p>Mern Stack Developer Intern , Worked on a full stack Project Called EduHub </p>
@@ -71,7 +71,7 @@ function WorkExperience() {
                                 </svg>
                             </div>
                             <div className="timeline-start mb-auto md:text-end">
-                                <time className="font-mono italic">March 2022 - May 2022</time>
+                                <time className="font-mono italic text-sm">March 2022 - May 2022</time>
                                 <div className="text-lg font-bold">1 Stop AI</div>
                                 <p>Cyber Security Intern</p>
                                 <p>Worked On 3 Projects </p>

@@ -26,7 +26,7 @@ function Projects() {
         {
             type:"iot & ml",
             imgSrc:trata,
-            title: "Trata",
+            title: "Trata - Patented",
             desc: " A AI Based Crop Monitoring & Prediction System , Integrated With IOT Sensors",
             technologies: ["Machine Learning", "IOT", "FireBase" , "Android"]
         },

@@ -11,6 +11,7 @@ import ChatBot from './Components/ChatBot'
 import ChatApp from './Components/ChatApp';
 import Projects from './Components/Projects';
 import WorkExperience from './Components/WorkExperience';
+import Achievement from './Components/Achievement';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
       <Services />
       <WorkExperience/>
       <Projects/>
+      <Achievement/>
 
 
       
