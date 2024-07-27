@@ -38,7 +38,7 @@ function Achievement() {
                 <div className='relative w-full h-[90vh] max-[650px]:h-fit p-[2%] max-[650px]:p-0 flex flex-row items-center justify-center  max-[650px]:flex-col max-[650px]:gap-4 flex-wrap gap-[4%] max-[650px]:flex-nowrap'>
                     {myAchi.map((achi) => {
                         return (
-                            <div className='w-[30%] h-[25vh] flex flex-col bg-gray-50 shadow-md rounded-xl justify-center items-center gap-2 max-[650px]:w-[80%]'>
+                            <div className='w-[30%] h-[25vh] flex flex-col bg-gray-50 shadow-md rounded-xl justify-center items-center gap-2 max-[650px]:w-[85%]'>
                                 <h1 className='relative text-[1.5vmax] max-[650px]:text-[2.5vmax] font-[700] font-poppins text-center'> 🏆 {achi.title}</h1>
                                 <h2 className='relative text-[1vmax] max-[650px]:text-[3.5vmax] font-[400] font-poppins w-[80%] text-center max-[650px]:text-base'>{achi.desc}</h2>
                             </div>

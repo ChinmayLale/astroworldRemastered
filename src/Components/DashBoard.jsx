@@ -34,6 +34,7 @@ function DashBoard() {
                     <div className='relative flex flex-row h-full w-[50%] max-[650px]:w-full items-center justify-center overflow-hidden'>
                         <img src={rocket} alt="Personal Image" className='myimg relative z-1 w-[50%] h-[80%] object-cover rounded-full grayscale max-[650px]:w-[70%] max-[650px]:h-[90%] ring-8 ring-gray-200' />
                     </div>
+                    <h1 className='absolute bottom-1 left-[10%] text-xl font-poppins font-[200] flex flex-row '><h1 className='animate-pulse text-2xl'><i class="ri-scroll-to-bottom-fill mr-2 "></i></h1>Scroll down</h1>
                 </div>
 
             </div>
