@@ -13,6 +13,7 @@ import Projects from './Components/Projects';
 import WorkExperience from './Components/WorkExperience';
 import Achievement from './Components/Achievement';
 import ContactMe from './Components/ContactMe';
+import AlertGood from './Components/AlertGood';
 
 
 function App() {
@@ -34,7 +35,6 @@ function App() {
       <Projects/>
       <Achievement/>
       <ContactMe/>
-
       
       <ChatBot />
      

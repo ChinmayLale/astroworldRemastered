@@ -16,7 +16,7 @@ function ChatBot() {
     ]);
     const [inputMessage, setInputMessage] = useState('');
     const messagesEndRef = useRef(null);
-
+    //http://localhost:8000/
     const socket = useMemo(() => io("https://socketapptest.onrender.com/"), [])
 
 
@@ -121,7 +121,7 @@ function ChatBot() {
                             <div className="chat-header">
                                 {message.sender === 'bot' ? 'astroBot' : message.sender === 'chinmay' ? 'chinmay':'you'}
                             </div>
-                            <div className={`chat-bubble text-sm ${message.sender === 'bot' ? 'bg-green-200' : 'bg-orange-50'} text-black`}>
+                            <div className={`chat-bubble text-sm ${message.sender === ('bot'||'chinmay') ? 'bg-green-200' : 'bg-orange-50'} text-black`}>
                                 {message.text}
                                  {message.options && (
                                     <div className="mt-2">
