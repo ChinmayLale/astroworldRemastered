@@ -51,7 +51,12 @@ function ContactMe() {
                 <div className='relative w-full h-full bg-red -300 flex flex-row items-center max-[650px]:flex-col'>
                     <div className='relative w-[50%] h-full bg-re d-500 flex flex-col p-[2%] border-r-gray-500 border max-[650px]:w-[98%] max-[650px]:text-center max-[650px]:border-none max-[650px]:justify-center'>
                         <h1 className='relative text-[3vmax] max-[650px]:text-[3.5vmax] font-[600] font-poppins'>I'd like to here from you.</h1>
-
+                        <div className='w-[90%] h-full flex flex-col mt-8 p-[5%] gap-2'>
+                            <h1 className='relative text-2xl cursor-pointer'><i class="ri-instagram-fill mr-2 text-gray-500 text-4xl"></i> astrochinmay</h1> 
+                            <a href='https://www.linkedin.com/in/chinmaylale/' className='relative text-2xl  cursor-pointer'><i class="ri-linkedin-box-fill mr-2 text-gray-500 text-4xl"></i> ChinmayLale</a>
+                            <h1 className='relative text-2xl  cursor-pointer'><i class="ri-mail-fill mr-2 text-gray-500 text-4xl"></i> chinmay29.lale@gmail.com</h1>  
+                             
+                        </div>
                     </div>
                     <div className='relative w-[50%] h-full bg-y ellow-50 p-[1%] max-[650px]:w-[98%]'>
                         <div class="max-w-md mx-auto p-8 bg-[#fafaf9] rounded-md shadow-md form-container scale-90">
