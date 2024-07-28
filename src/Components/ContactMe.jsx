@@ -33,6 +33,7 @@ function ContactMe() {
             }
             // Your form submission logic here
             console.log(formData);
+            setFormData({...formData , user:"",email:"",message:''})
             // After successful submission:
             setShowAlert(true);
             // Optionally, hide the alert after a few seconds:
@@ -56,7 +57,7 @@ function ContactMe() {
                         <div class="max-w-md mx-auto p-8 bg-[#fafaf9] rounded-md shadow-md form-container scale-90">
                             <h2 class="text-2xl font-semibold text-gray-950 mb-6">Say Something!</h2>
                             {showAlert && <AlertGood status={status} msg={alertMsg} />}
-                            <form action="https://fabform.io/f/insert-form-id" method="POST">
+                            <form  method="POST">
                                 <div class="mb-4">
                                     <label for="name" class="block text-gray-950 text-sm font-bold mb-2">Your Name</label>
                                     <input type="text" id="name" name="name" placeholder="John Doe" required

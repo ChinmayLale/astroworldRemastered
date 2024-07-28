@@ -60,6 +60,7 @@ function ChatBot() {
                         break;
                     case 'get call from chinmay':
                         botResponse = "Sure, I'd be happy to arrange a call. What's the best number to reach you at?";
+                        setIsBot(false);
                         break;
                     case 'send chat request':
                         botResponse = "Just hold a moment i will send request to chinmay , Thanks for your paitents";
