@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function ContactMe(props) {
     const [status, setStatus] = useState(true);
-    const [alertMsg, setAlertMsg] = useState('hahah');
+    const [alertMsg, setAlertMsg] = useState('');
     const [showAlert, setShowAlert] = useState(false);
 
     const [formData, setFormData] = useState({
@@ -30,14 +30,18 @@ function ContactMe(props) {
                 setStatus(false);
                 setAlertMsg('Invalid email format');
                 setTimeout(() => {setShowAlert(false);setAlertMsg('waiting')}, 5000);
+            }else{
+                console.log(formData);
+                socket.emit('contact-me',JSON.stringify(formData));
+                setFormData({...formData , user:"",email:"",message:''})
+                setAlertMsg("Details Sent To Chinmay");
+                setStatus(true);
+                setShowAlert(true);
+                setTimeout(() => setShowAlert(false), 5000);
             }
             // Your form submission logic here
             // After successful submission:
-            console.log(formData);
-            socket.emit('contact-me',JSON.stringify(formData));
-            setFormData({...formData , user:"",email:"",message:''})
-            setShowAlert(true);
-            setTimeout(() => setShowAlert(false), 5000);
+            
         }
     };
 
