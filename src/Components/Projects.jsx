@@ -8,34 +8,39 @@ import nexachat from '../assets/nexaChat.png';
 
 
 function Projects() {
+
     const projects = [
         {
             type: "website",
             imgSrc:nexachat,
             title: "NexaChat",
             desc: "One to One Video Chat Application, built by implementing socket io",
-            technologies: ["React Js", "Node.js", "MongoDB" , "Express Js" , "Socket io"]
+            technologies: ["React Js", "Node.js", "MongoDB" , "Express Js" , "Socket io"],
+            link:'https://chinmaylale.github.io/NexaChat/'
         },
         {
             type:"website",
             imgSrc:eduHub,
             title: "EduHub",
             desc: "An Online E Learning Platform Which Leverages Features Like Group Studies ",
-            technologies: ["React", "Node.js", "MongoDB", "Express Js" , "Socket io"]
+            technologies: ["React", "Node.js", "MongoDB", "Express Js" , "Socket io"],
+            link:'https://github.com/ChinmayLale/eduHub-remastered'
         },
         {
             type:"iot & ml",
             imgSrc:trata,
             title: "Trata - Patented",
             desc: " A AI Based Crop Monitoring & Prediction System , Integrated With IOT Sensors",
-            technologies: ["Machine Learning", "IOT", "FireBase" , "Android"]
+            technologies: ["Machine Learning", "IOT", "FireBase" , "Android"],
+            link:'https://youtu.be/7YcE06znHCg'
         },
         {
             type:"website",
             imgSrc:portfolio,
             title: "AstroWorld",
             desc: "My Personal Portfolio website with Integrated chatbot",
-            technologies: ["React", "Socket io", "MongoDb" , "Node JS"]
+            technologies: ["React", "Socket io", "MongoDb" , "Node JS"],
+            link:'https://chinmaylale.github.io/astroworldRemastered/'
         },
         
 
@@ -48,7 +53,7 @@ function Projects() {
                 <h1 className='relative text-[1.5vmax] font-[400] font-poppins'>Projects</h1>
                 <div className='relative w-full h-fit max-[650px]:h-fit  flex flex-row items-center justify-start pl-[17%] gap-8 max-[650px]:flex-col max-[650px]:pt-8 flex-wrap max-[650px]:flex-nowrap max-[650px]:pl-0' >
                     {projects.map((project)=>{
-                        return <ProjectCard title={project.title} desc={project.desc} tech={project.technologies} type={project.type} imgSrc={project.imgSrc}/>
+                        return <ProjectCard title={project.title} desc={project.desc} tech={project.technologies} type={project.type} imgSrc={project.imgSrc} link={project.link}/>
                     })}
                 </div>
             </div>

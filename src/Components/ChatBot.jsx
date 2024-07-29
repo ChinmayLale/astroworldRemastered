@@ -15,8 +15,7 @@ function ChatBot(props) {
     ]);
     const [inputMessage, setInputMessage] = useState('');
     const messagesEndRef = useRef(null);
-    //http://localhost:8000/
-    // const socket = useMemo(() => io("https://socketapptest.onrender.com/"), [])
+    
     const socket = props.socket;
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -52,6 +51,7 @@ function ChatBot(props) {
         if(isBot){
             setTimeout(() => {
                 let botResponse = "I'm sorry, I didn't understand that. Can you please choose from the options provided?";
+                if(isBot){
                 switch (userInput.toLowerCase()) {
                     case 'contact':
                         botResponse = "Great! You can contact Chinmay at chinmay29.lale@gmail.com or call at +91-7620704050.";
@@ -67,7 +67,11 @@ function ChatBot(props) {
                     default:
                         botResponse += " Here are your options:";
                 }
-                setMessages(prev => [...prev, { sender: 'bot', text: botResponse, options: ['Contact', 'Get Call from chinmay', 'Send chat request'] }]);
+                
+                    if(bot){
+                        setMessages(prev => [...prev, { sender: 'bot', text: botResponse, options: ['Contact', 'Get Call from chinmay', 'Send chat request'] }])
+                    }
+                };
             }, 1000);
         }
     }
@@ -110,8 +114,8 @@ function ChatBot(props) {
                 onClick={() => setIsOpen(!isOpen)}
             />
 
-            <div className={`absolute z-[300] w-[20vw] max-[650px]:w-[80vw] h-[60vh] bottom-28 right-4 bg-transparent backdrop-blur-md rounded-lg flex flex-col ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-[200%] opacity-0'} transition-all duration-500 ease-in-out border-solid border-2 border-gray-200`}>
-                <div className="flex-1 overflow-y-auto p-4">
+            <div className={`absolute z-[11] w-[20vw] max-[650px]:w-[80vw] h-[60vh] bottom-28 right-4 bg-transparent backdrop-blur-md rounded-lg flex flex-col ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-[200%] opacity-0'} transition-all duration-500 ease-in-out border-solid border-2 border-gray-200`}>
+                <div className="flex-1 overflow-y-auto p-4 z-[99]">
                     {messages.map((message, index) => (
                         <div key={index} className={`chat ${message.sender === 'bot'  ? 'chat-start' :  message.sender === 'chinmay' ? 'chat-start':'chat-end'}`}>
                             <div className="chat-image avatar">
