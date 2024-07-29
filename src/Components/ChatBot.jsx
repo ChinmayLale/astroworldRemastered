@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react'
+import React, { useState, useRef, useEffect, useMemo, useContext } from 'react'
 import Lottie from "lottie-react";
 import { io } from 'socket.io-client'
 import chatbot from '../assets/chatbot.json'
@@ -7,8 +7,7 @@ import chatBotBlack from '../assets/chatBotBlack.json'
 
 
 
-
-function ChatBot() {
+function ChatBot(props) {
     const [isBot, setIsBot] = useState(true);
     const [isOpen, setIsOpen] = useState(true);
     const [messages, setMessages] = useState([
@@ -17,9 +16,8 @@ function ChatBot() {
     const [inputMessage, setInputMessage] = useState('');
     const messagesEndRef = useRef(null);
     //http://localhost:8000/
-    const socket = useMemo(() => io("https://socketapptest.onrender.com/"), [])
-
-
+    // const socket = useMemo(() => io("https://socketapptest.onrender.com/"), [])
+    const socket = props.socket;
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
@@ -81,20 +79,22 @@ function ChatBot() {
 
     useEffect(() => {
 
-        socket.on('connect', (msg) => {
-            console.log("MSG From Backend : ", msg)
-        })
-
-        socket.on('replay', (msg) => {
-            const botResponse = msg;
-            setMessages(prev => [...prev, { sender: 'bot', text: botResponse }])
-        })
-
-        socket.on('chinmay-msg', (msg) => {
-            const botResponse = msg;
-            setMessages(prev => [...prev, { sender: 'chinmay', text: botResponse }])
-        })
-
+        if(socket){
+            socket.on('connect', (msg) => {
+                console.log("MSG From Backend : ", msg)
+            })
+    
+            socket.on('replay', (msg) => {
+                const botResponse = msg;
+                setMessages(prev => [...prev, { sender: 'bot', text: botResponse }])
+            })
+    
+            socket.on('chinmay-msg', (msg) => {
+                const botResponse = msg;
+                setMessages(prev => [...prev, { sender: 'chinmay', text: botResponse }])
+            })
+    
+        }
         return (() => {
             socket.emit('disconnect', 'disconnected From Server')
         })

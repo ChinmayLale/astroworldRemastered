@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 
-function ContactMe() {
+function ContactMe(props) {
     const [status, setStatus] = useState(true);
     const [alertMsg, setAlertMsg] = useState('hahah');
     const [showAlert, setShowAlert] = useState(false);
@@ -14,7 +14,7 @@ function ContactMe() {
         email: '',
         message: ''
     });
-
+    const socket = props.socket;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,11 +32,11 @@ function ContactMe() {
                 setTimeout(() => {setShowAlert(false);setAlertMsg('waiting')}, 5000);
             }
             // Your form submission logic here
-            console.log(formData);
-            setFormData({...formData , user:"",email:"",message:''})
             // After successful submission:
+            console.log(formData);
+            socket.emit('contact-me',JSON.stringify(formData));
+            setFormData({...formData , user:"",email:"",message:''})
             setShowAlert(true);
-            // Optionally, hide the alert after a few seconds:
             setTimeout(() => setShowAlert(false), 5000);
         }
     };

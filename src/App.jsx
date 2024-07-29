@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo} from 'react';
 import NavBar from './Components/NavBar'
 import DashBoard from './Components/DashBoard'
 import Content from './Components/ContactMe'
@@ -14,12 +14,13 @@ import WorkExperience from './Components/WorkExperience';
 import Achievement from './Components/Achievement';
 import ContactMe from './Components/ContactMe';
 import AlertGood from './Components/AlertGood';
+import { io } from 'socket.io-client'
 
 
 function App() {
 
-
-
+  // https://socketapptest.onrender.com/
+  const socket = useMemo(() => io("https://socketapptest.onrender.com/"), [])
 
 
 
@@ -34,9 +35,9 @@ function App() {
       <WorkExperience/>
       <Projects/>
       <Achievement/>
-      <ContactMe/>
+      <ContactMe socket={socket}/>
       
-      <ChatBot />
+      <ChatBot socket={socket} />
      
 
 
