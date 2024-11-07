@@ -12,6 +12,27 @@ function WorkExperience() {
 
                 <div className='relative w-full h-[90vh] max-[650px]:h-[80vh]  flex flex-row items-center justify-start  max-[650px]:flex-col max-[650px]:gap-4'>
                     <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical  h-fit relative max-[650px]:gap-4">
+                    <li>
+                            <div className="timeline-middle">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    className="h-5 w-5">
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                                        clipRule="evenodd" />
+                                </svg>
+                            </div>
+                            <div className="timeline-start mb-10 md:text-end">
+                                <time className="font-mono italic text-sm">August 2024 - Current</time>
+                                <div className="text-lg font-bold">SOCON</div>
+                                <p>Software Engineer Intern</p>
+                                <p>Working on Handling Apps in Technology like React JS and React Native ,  Responsible for developing AWS lambda python scripts </p>
+                            </div>
+                            <hr />
+                        </li>
                         <li>
                             <div className="timeline-middle">
                                 <svg
@@ -26,7 +47,7 @@ function WorkExperience() {
                                 </svg>
                             </div>
                             <div className="timeline-start mb-10 md:text-end">
-                                <time className="font-mono italic text-sm">April 2024 - Current</time>
+                                <time className="font-mono italic text-sm">April 2024 - August 2024</time>
                                 <div className="text-lg font-bold">Aarya Global Consulting</div>
                                 <p>React Js & Node Js Developer</p>
                                 <p>React.js & Nodejs Application Developer ,Responsible for Rest API configurations  , Handling Backend  , Developing React Component</p>
