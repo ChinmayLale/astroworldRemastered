@@ -25,7 +25,7 @@ function WorkExperience() {
                                         clipRule="evenodd" />
                                 </svg>
                             </div>
-                            <div className="timeline-start mb-10 md:text-end">
+                            <div className="timeline-end mb-10 md:text-start">
                                 <time className="font-mono italic text-sm">August 2024 - Current</time>
                                 <div className="text-lg font-bold">SOCON</div>
                                 <p>Software Engineer Intern</p>
