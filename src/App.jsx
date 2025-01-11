@@ -20,7 +20,7 @@ import { io } from 'socket.io-client'
 function App() {
 
   // https://socketapptest.onrender.com/
-  const socket = useMemo(() => io("https://socketapptest.onrender.com/"), [])
+  const socket = useMemo(() => io("https://portfolio-backend-lqu6.onrender.com/"), [])
 
 
 

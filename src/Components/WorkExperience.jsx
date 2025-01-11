@@ -10,9 +10,9 @@ function WorkExperience() {
                 <h1 className='relative text-[3vmax] max-[650px]:text-[3.5vmax] font-[600] font-poppins'>Work Experience</h1>
                 <h1 className='relative text-[1.5vmax] font-[400] font-poppins max-[650px]:mb-8'>see where i worked</h1>
 
-                <div className='relative w-full h-[90vh] max-[650px]:h-[80vh]  flex flex-row items-center justify-start  max-[650px]:flex-col max-[650px]:gap-4'>
+                <div className='relative w-full h-[92vh] max-[650px]:h-[80vh]  flex flex-row items-center justify-start  max-[650px]:flex-col max-[650px]:gap-4'>
                     <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical  h-fit relative max-[650px]:gap-4">
-                    <li>
+                        <li>
                             <div className="timeline-middle">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
